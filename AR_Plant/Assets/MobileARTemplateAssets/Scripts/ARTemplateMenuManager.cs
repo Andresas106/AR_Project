@@ -21,6 +21,19 @@ public class ARTemplateMenuManager : MonoBehaviour
     [Tooltip("Button that opens the create menu.")]
     Button m_CreateButton;
 
+    [SerializeField]
+    [Tooltip("Objeto que se desactivará cuando se coloque un objeto.")]
+    GameObject m_ObjectToDisable;
+
+    /// <summary>
+    /// Objeto que se desactivará cuando se coloque un objeto.
+    /// </summary>
+    public GameObject objectToDisable
+    {
+        get => m_ObjectToDisable;
+        set => m_ObjectToDisable = value;
+    }
+
     /// <summary>
     /// Button that opens the create menu.
     /// </summary>
@@ -320,6 +333,11 @@ public class ARTemplateMenuManager : MonoBehaviour
             if (m_ObjectSpawner.objectPrefabs.Count > objectIndex)
             {
                 m_ObjectSpawner.spawnOptionIndex = objectIndex;
+
+                if (m_ObjectToDisable != null)
+                {
+                    m_ObjectToDisable.SetActive(false);
+                }
             }
             else
             {
@@ -429,6 +447,11 @@ public class ARTemplateMenuManager : MonoBehaviour
         if (currentFocusedObject != null)
         {
             Destroy(currentFocusedObject.transform.gameObject);
+
+            if (m_ObjectToDisable != null && m_ObjectSpawner.transform.childCount == 0)
+            {
+                m_ObjectToDisable.SetActive(true);
+            }
         }
     }
 
