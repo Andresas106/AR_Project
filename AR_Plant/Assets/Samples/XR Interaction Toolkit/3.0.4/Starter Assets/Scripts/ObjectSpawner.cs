@@ -241,5 +241,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             objectSpawned?.Invoke(newObject);
             return true;
         }
+
+        public void RemoveCurrentObject()
+        {
+            if (m_CurrentSpawnedObject != null)
+            {
+                Destroy(m_CurrentSpawnedObject);
+                m_CurrentSpawnedObject = null;
+            }
+        }
     }
 }

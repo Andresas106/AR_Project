@@ -425,11 +425,7 @@ public class ARTemplateMenuManager : MonoBehaviour
 
     void DeleteFocusedObject()
     {
-        var currentFocusedObject = m_InteractionGroup.focusInteractable;
-        if (currentFocusedObject != null)
-        {
-            Destroy(currentFocusedObject.transform.gameObject);
-        }
+        m_ObjectSpawner.RemoveCurrentObject();
     }
 
     void InitializeDebugMenuOffsets()
