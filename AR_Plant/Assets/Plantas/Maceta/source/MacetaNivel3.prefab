@@ -81,12 +81,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6df494c836b034c43bb93d3c948fc9c6,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 6df494c836b034c43bb93d3c948fc9c6,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -157,10 +157,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3519401477064277799, guid: 79d486a4a991004409509f5b4c9a666b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4845317024449561903, guid: 79d486a4a991004409509f5b4c9a666b,
         type: 3}
       propertyPath: m_Name
       value: MacetaNivel3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845317024449561903, guid: 79d486a4a991004409509f5b4c9a666b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5573951242147055614, guid: 79d486a4a991004409509f5b4c9a666b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
