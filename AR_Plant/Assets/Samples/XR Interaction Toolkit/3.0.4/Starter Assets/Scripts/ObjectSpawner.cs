@@ -146,11 +146,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             set => m_SpawnAsChildren = value;
         }
 
+        private GameObject m_CurrentSpawnedObject;
+
         /// <summary>
         /// Event invoked after an object is spawned.
         /// </summary>
         /// <seealso cref="TrySpawnObject"/>
         public event Action<GameObject> objectSpawned;
+
 
         /// <summary>
         /// See <see cref="MonoBehaviour"/>.
@@ -192,6 +195,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         /// <seealso cref="objectSpawned"/>
         public bool TrySpawnObject(Vector3 spawnPoint, Vector3 spawnNormal)
         {
+            if (m_CurrentSpawnedObject != null)
+                return false;
+
             if (m_OnlySpawnInView)
             {
                 var inViewMin = m_ViewportPeriphery;
@@ -229,6 +235,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 visualizationTrans.position = spawnPoint;
                 visualizationTrans.rotation = newObject.transform.rotation;
             }
+
+            m_CurrentSpawnedObject = newObject;
 
             objectSpawned?.Invoke(newObject);
             return true;
