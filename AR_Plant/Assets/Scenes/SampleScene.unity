@@ -941,6 +941,8 @@ MonoBehaviour:
   m_ApplyRandomAngleAtSpawn: 1
   m_SpawnAngleRange: 45
   m_SpawnAsChildren: 0
+  numberText0: {fileID: 868476419}
+  numberText1: {fileID: 794899931}
 --- !u!4 &436358034
 Transform:
   m_ObjectHideFlags: 0

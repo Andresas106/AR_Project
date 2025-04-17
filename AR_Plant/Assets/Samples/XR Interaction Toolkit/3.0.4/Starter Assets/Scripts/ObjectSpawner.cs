@@ -148,6 +148,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         private GameObject m_CurrentSpawnedObject;
         private GameObject m_StoredObject; // Guarda la planta cuando se recoge
+        public GameObject numberText0;
+        public GameObject numberText1;
 
         /// <summary>
         /// Event invoked after an object is spawned.
@@ -223,6 +225,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 BurstMathUtility.ProjectOnPlane(forwardObj, spawnNormal, out var projectedForwardObj);
                 m_CurrentSpawnedObject.transform.rotation = Quaternion.LookRotation(projectedForwardObj, spawnNormal);
                 m_CurrentSpawnedObject.SetActive(true);
+                numberText0.SetActive(true);
+                numberText1.SetActive(false);
 
                 objectSpawned?.Invoke(m_CurrentSpawnedObject);
                 return true;
@@ -255,6 +259,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
 
             m_CurrentSpawnedObject = newObject;
+            numberText0.SetActive(true);
+            numberText1.SetActive(false);
 
             objectSpawned?.Invoke(newObject);
             return true;
@@ -267,6 +273,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 m_StoredObject = m_CurrentSpawnedObject;
                 m_StoredObject.SetActive(false);
                 m_CurrentSpawnedObject = null;
+
+                numberText0.SetActive(false);
+                numberText1.SetActive(true);
             }
         }
     }
