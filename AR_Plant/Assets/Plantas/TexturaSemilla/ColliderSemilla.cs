@@ -15,11 +15,13 @@ public class ColliderSemilla : MonoBehaviour
     private bool followCamera = true;
     private Vector3 currentVelocity = Vector3.zero;
     private TrailRenderer trail;
+    public GameObject buttonDelete;
 
     void Start()
     {
         trail = GetComponent<TrailRenderer>();
         trail.enabled = false;
+
 
         rb = GetComponent<Rigidbody>();
         grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
@@ -37,12 +39,19 @@ public class ColliderSemilla : MonoBehaviour
 
     void Update()
     {
+       
+        
         if (followCamera)
         {
             Vector3 targetPosition = cameraTransform.position + cameraTransform.forward * offset.z;
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, followSmoothTime);
             transform.rotation = Quaternion.LookRotation(cameraTransform.forward);
         }
+
+        /*if(gameObject.CompareTag("Semilla"))
+        {
+            buttonDelete.SetActive(false);
+        }*/
     }
 
     void OnCollisionEnter(Collision collision)
