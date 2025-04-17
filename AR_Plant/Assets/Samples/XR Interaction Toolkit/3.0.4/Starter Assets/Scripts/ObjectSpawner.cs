@@ -147,6 +147,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
         private GameObject m_CurrentSpawnedObject;
+        private GameObject m_StoredObject; // Guarda la planta cuando se recoge
 
         /// <summary>
         /// Event invoked after an object is spawned.
@@ -198,7 +199,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             if (m_CurrentSpawnedObject != null)
                 return false;
 
-            if (m_OnlySpawnInView)
+            /*if (m_OnlySpawnInView)
             {
                 var inViewMin = m_ViewportPeriphery;
                 var inViewMax = 1f - m_ViewportPeriphery;
@@ -208,6 +209,23 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 {
                     return false;
                 }
+            }*/
+
+            if(m_StoredObject != null)
+            {
+                m_CurrentSpawnedObject = m_StoredObject;
+                m_StoredObject = null;
+
+                m_CurrentSpawnedObject.transform.position = spawnPoint;
+                EnsureFacingCamera();
+                var facePositionObj = m_CameraToFace.transform.position;
+                var forwardObj = facePositionObj - spawnPoint;
+                BurstMathUtility.ProjectOnPlane(forwardObj, spawnNormal, out var projectedForwardObj);
+                m_CurrentSpawnedObject.transform.rotation = Quaternion.LookRotation(projectedForwardObj, spawnNormal);
+                m_CurrentSpawnedObject.SetActive(true);
+
+                objectSpawned?.Invoke(m_CurrentSpawnedObject);
+                return true;
             }
 
             var objectIndex = isSpawnOptionRandomized ? Random.Range(0, m_ObjectPrefabs.Count) : m_SpawnOptionIndex;
@@ -246,7 +264,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         {
             if (m_CurrentSpawnedObject != null)
             {
-                Destroy(m_CurrentSpawnedObject);
+                m_StoredObject = m_CurrentSpawnedObject;
+                m_StoredObject.SetActive(false);
                 m_CurrentSpawnedObject = null;
             }
         }
