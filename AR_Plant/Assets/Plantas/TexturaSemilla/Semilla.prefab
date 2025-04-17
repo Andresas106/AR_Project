@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7692983145434780870}
   - component: {fileID: 3063224937203289154}
   - component: {fileID: 1036905322257325911}
-  - component: {fileID: 5502746782244801638}
   m_Layer: 0
   m_Name: Pivot
   m_TagString: Untagged
@@ -136,12 +135,11 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 3174286912449157955, guid: 26328d68dc2a16d4ca96963672c4e367,
-    type: 3}
+  m_AttachTransform: {fileID: 7811375135211019929}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 1
   m_MatchAttachPosition: 1
-  m_MatchAttachRotation: 0
+  m_MatchAttachRotation: 1
   m_SnapToColliderVolume: 0
   m_ReinitializeDynamicAttachEverySingleGrab: 0
   m_AttachEaseInTime: 0.15
@@ -153,11 +151,11 @@ MonoBehaviour:
   m_TrackPosition: 1
   m_SmoothPosition: 1
   m_SmoothPositionAmount: 1
-  m_TightenPosition: 0.5
+  m_TightenPosition: 0.254
   m_TrackRotation: 1
   m_SmoothRotation: 1
   m_SmoothRotationAmount: 1
-  m_TightenRotation: 0.5
+  m_TightenRotation: 0.283
   m_TrackScale: 0
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
@@ -208,8 +206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4aaa6042da8df48bac7ec293d06b9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPosition: {x: 0, y: 0, z: 0.5}
+  offset: {x: 0, y: 0, z: 0.5}
+  followSmoothTime: 0.1
   respawnDelay: 3
+  buttonDelete: {fileID: 0}
 --- !u!96 &1036905322257325911
 TrailRenderer:
   serializedVersion: 3
@@ -261,14 +261,14 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.026770378
-        value: 0.06611639
-        inSlope: -0.23868763
-        outSlope: -0.23868763
+        time: 0
+        value: 0.049102843
+        inSlope: -0.06549653
+        outSlope: -0.06549653
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.10143529
+        outWeight: 0.1
       - serializedVersion: 3
         time: 1
         value: 0
@@ -311,40 +311,18 @@ TrailRenderer:
       m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 8
-    numCapVertices: 8
+    numCornerVertices: 10
+    numCapVertices: 10
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.01
   m_MaskInteraction: 0
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 0
---- !u!64 &5502746782244801638
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2862212101110555901}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &4704684221432450531
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,7 +334,7 @@ GameObject:
   - component: {fileID: 4424545105310531465}
   - component: {fileID: 3191035205009979171}
   - component: {fileID: 3504751035204392853}
-  - component: {fileID: 6498102764494992285}
+  - component: {fileID: 5943893969080577691}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -429,7 +407,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6498102764494992285
+--- !u!64 &5943893969080577691
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -448,7 +426,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: c5c648081bec5e3449f67e7005de9661, type: 3}
 --- !u!1 &8648209908020266289
