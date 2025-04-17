@@ -4994,6 +4994,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2862212101110555901, guid: d03720036d3d90e49a892f5e1fdecb77,
+        type: 3}
+      propertyPath: m_TagString
+      value: Semilla
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063224937203289154, guid: d03720036d3d90e49a892f5e1fdecb77,
+        type: 3}
+      propertyPath: offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063224937203289154, guid: d03720036d3d90e49a892f5e1fdecb77,
+        type: 3}
+      propertyPath: buttonDelete
+      value: 
+      objectReference: {fileID: 425410336}
     - target: {fileID: 4176579459029577358, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}
       propertyPath: m_CollisionDetection
