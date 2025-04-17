@@ -943,6 +943,7 @@ MonoBehaviour:
   m_SpawnAsChildren: 0
   numberText0: {fileID: 868476419}
   numberText1: {fileID: 794899931}
+  semilla: {fileID: 1921177652}
 --- !u!4 &436358034
 Transform:
   m_ObjectHideFlags: 0
@@ -4982,10 +4983,20 @@ PrefabInstance:
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
       value: 0.14978853
       objectReference: {fileID: 0}
+    - target: {fileID: 2862212101110555901, guid: d03720036d3d90e49a892f5e1fdecb77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4176579459029577358, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}
       propertyPath: m_CollisionDetection
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704684221432450531, guid: d03720036d3d90e49a892f5e1fdecb77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6498102764494992285, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}
@@ -5051,6 +5062,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Semilla
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648209908020266289, guid: d03720036d3d90e49a892f5e1fdecb77,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5580,6 +5596,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1905935980}
   m_CullTransparentMesh: 1
+--- !u!1 &1921177652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4704684221432450531, guid: d03720036d3d90e49a892f5e1fdecb77,
+    type: 3}
+  m_PrefabInstance: {fileID: 1588466306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1936784340
 GameObject:
   m_ObjectHideFlags: 0

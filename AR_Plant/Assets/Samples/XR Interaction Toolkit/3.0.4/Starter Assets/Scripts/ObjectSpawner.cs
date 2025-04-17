@@ -150,6 +150,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         private GameObject m_StoredObject; // Guarda la planta cuando se recoge
         public GameObject numberText0;
         public GameObject numberText1;
+        public GameObject semilla;
 
         /// <summary>
         /// Event invoked after an object is spawned.
@@ -227,6 +228,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 m_CurrentSpawnedObject.SetActive(true);
                 numberText0.SetActive(true);
                 numberText1.SetActive(false);
+                semilla.SetActive(true);
 
                 objectSpawned?.Invoke(m_CurrentSpawnedObject);
                 return true;
@@ -261,6 +263,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             m_CurrentSpawnedObject = newObject;
             numberText0.SetActive(true);
             numberText1.SetActive(false);
+            semilla.SetActive(true);
 
             objectSpawned?.Invoke(newObject);
             return true;
@@ -276,6 +279,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
                 numberText0.SetActive(false);
                 numberText1.SetActive(true);
+
+                semilla.SetActive(false);
             }
         }
     }

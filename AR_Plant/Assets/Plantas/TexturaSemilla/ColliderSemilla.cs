@@ -1,50 +1,81 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ColliderSemilla : MonoBehaviour
 {
-    [Header("Configuración")]
-    public Vector3 respawnPosition = new Vector3(0, 0, 0.5f); // Posición relativa a la cámara
-    public float respawnDelay = 3f; // Tiempo antes de reaparecer
+    [Header("ConfiguraciÃ³n")]
+    public Vector3 offset = new Vector3(0, 0, 0.5f);
+    public float followSmoothTime = 0.1f;
+    public float respawnDelay = 3f;
 
     private Rigidbody rb;
     private bool hasCollided = false;
+    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable grabInteractable;
+    private Transform cameraTransform;
+    private bool followCamera = true;
+    private Vector3 currentVelocity = Vector3.zero;
+    private TrailRenderer trail;
 
     void Start()
     {
+        trail = GetComponent<TrailRenderer>();
+        trail.enabled = false;
+
         rb = GetComponent<Rigidbody>();
-        // Guarda la posición inicial al spawnear (opcional, si no es estática)
-        if (respawnPosition == Vector3.zero)
+        grabInteractable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        cameraTransform = Camera.main.transform;
+
+        if (grabInteractable != null)
         {
-            respawnPosition = transform.position;
+            grabInteractable.enabled = true;
+            grabInteractable.selectEntered.AddListener(OnGrab);
+            grabInteractable.selectExited.AddListener(OnDrop);
+        }
+
+        followCamera = true;
+    }
+
+    void Update()
+    {
+        if (followCamera)
+        {
+            Vector3 targetPosition = cameraTransform.position + cameraTransform.forward * offset.z;
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref currentVelocity, followSmoothTime);
+            transform.rotation = Quaternion.LookRotation(cameraTransform.forward);
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (hasCollided) return; // Evita múltiples colisiones
+        if (hasCollided) return;
 
         if (collision.gameObject.CompareTag("Tierra"))
         {
-            Debug.Log("¡Semilla plantada en la tierra!");
-            Destroy(collision.gameObject); // Opcional: destruye la tierra
+            Debug.Log("Â¡Semilla plantada en la tierra!");
+            Destroy(collision.gameObject);
         }
 
         hasCollided = true;
-        Invoke("RecycleSeed", 3f); // Recicla la semilla
+        followCamera = false;
+
+        if (grabInteractable != null)
+        {
+            grabInteractable.enabled = false;
+        }
+
+        Invoke("RecycleSeed", respawnDelay);
     }
 
     void RecycleSeed()
     {
-        // Desactiva físicas y resetea velocidad
+        if (trail != null)
+            trail.enabled = false;
+
         rb.useGravity = false;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
 
-        // Vuelve a la posición inicial (opcional: con suavizado)
-        transform.position = Camera.main.transform.TransformPoint(respawnPosition);
-        transform.rotation = Camera.main.transform.rotation;
-
-        // Espera antes de reactivar (para evitar bugs)
+        followCamera = true; // vuelve a seguir a la cÃ¡mara
         Invoke("EnableSeed", 0.1f);
     }
 
@@ -52,5 +83,27 @@ public class ColliderSemilla : MonoBehaviour
     {
         rb.useGravity = false;
         hasCollided = false;
+
+        if (grabInteractable != null)
+        {
+            grabInteractable.enabled = true;
+        }
+    }
+
+    void OnGrab(SelectEnterEventArgs args)
+    {
+        followCamera = false;
+        rb.useGravity = true;
+
+        if (trail != null)
+        {
+            trail.Clear(); // Limpia la estela anterior
+            trail.enabled = true; // ActÃ­vala al lanzar
+        }
+    }
+
+    void OnDrop(SelectExitEventArgs args)
+    {
+        // Por si quieres hacer algo cuando se suelta
     }
 }
