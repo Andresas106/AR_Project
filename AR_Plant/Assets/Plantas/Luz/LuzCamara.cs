@@ -49,7 +49,6 @@ public class CircularRaycast : MonoBehaviour
         barra.value += velocidadLlenado * Time.deltaTime;
         if (barra.value >= barra.maxValue)
         {
-            barra.value = 0;
             Debug.Log("¡Barra llena!");
         }
     }
