@@ -57,7 +57,6 @@ public class ColliderSemilla : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-
         if (other.gameObject.CompareTag("Tierra"))
         {
             Debug.Log("¡Semilla plantada en la tierra!");
