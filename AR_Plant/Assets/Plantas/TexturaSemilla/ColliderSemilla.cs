@@ -1,4 +1,4 @@
-using UnityEngine;
+    using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class ColliderSemilla : MonoBehaviour
@@ -15,7 +15,7 @@ public class ColliderSemilla : MonoBehaviour
     private bool followCamera = true;
     private Vector3 currentVelocity = Vector3.zero;
     private TrailRenderer trail;
-    public GameObject buttonDelete;
+    public GameObject semilla;
 
     void Start()
     {
@@ -54,15 +54,20 @@ public class ColliderSemilla : MonoBehaviour
         }*/
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Tierra"))
+        {
+            Debug.Log("¡Semilla plantada en la tierra!");
+            Destroy(semilla, 1f);
+        }
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         if (hasCollided) return;
 
-        if (collision.gameObject.CompareTag("Tierra"))
-        {
-            Debug.Log("¡Semilla plantada en la tierra!");
-            Destroy(collision.gameObject);
-        }
+        
 
         hasCollided = true;
         followCamera = false;

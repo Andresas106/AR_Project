@@ -5001,6 +5001,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3063224937203289154, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}
+      propertyPath: semilla
+      value: 
+      objectReference: {fileID: 15643548}
+    - target: {fileID: 3063224937203289154, guid: d03720036d3d90e49a892f5e1fdecb77,
+        type: 3}
       propertyPath: offset.y
       value: 0
       objectReference: {fileID: 0}
