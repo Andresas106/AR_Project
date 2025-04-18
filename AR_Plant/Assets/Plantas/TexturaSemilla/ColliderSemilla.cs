@@ -16,7 +16,6 @@ public class ColliderSemilla : MonoBehaviour
     private Vector3 currentVelocity = Vector3.zero;
     private TrailRenderer trail;
     public GameObject semilla;
-    public GameObject particulas;
 
     void Start()
     {
@@ -59,9 +58,22 @@ public class ColliderSemilla : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tierra"))
         {
-            Debug.Log("¡Semilla plantada en la tierra!");
             Destroy(semilla, 1f);
-            particulas.SetActive(true);
+            
+
+            Transform maceta = other.transform.parent;
+            Transform rootMaceta = maceta?.parent;
+
+            if (rootMaceta != null)
+            {
+ 
+                GameObject particulas = rootMaceta.transform.Find("ParticulasSemilla")?.gameObject; // buscar dentro del hijo "maceta"
+                if (particulas != null)
+                {
+
+                    particulas.SetActive(true);
+                }
+            }
         }
     }
 
