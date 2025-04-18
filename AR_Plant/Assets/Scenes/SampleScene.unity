@@ -4966,11 +4966,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036905322257325911, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1036905322257325911, guid: d03720036d3d90e49a892f5e1fdecb77,
-        type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
       value: -0.10329638
       objectReference: {fileID: 0}
@@ -4981,18 +4976,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1036905322257325911, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1036905322257325911, guid: d03720036d3d90e49a892f5e1fdecb77,
-        type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outWeight
       value: 0.14978853
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862212101110555901, guid: d03720036d3d90e49a892f5e1fdecb77,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2862212101110555901, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}
@@ -5006,33 +4991,13 @@ PrefabInstance:
       objectReference: {fileID: 15643548}
     - target: {fileID: 3063224937203289154, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}
-      propertyPath: offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3063224937203289154, guid: d03720036d3d90e49a892f5e1fdecb77,
-        type: 3}
-      propertyPath: buttonDelete
+      propertyPath: particulas
       value: 
-      objectReference: {fileID: 425410336}
+      objectReference: {fileID: 0}
     - target: {fileID: 4176579459029577358, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}
       propertyPath: m_CollisionDetection
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4704684221432450531, guid: d03720036d3d90e49a892f5e1fdecb77,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6498102764494992285, guid: d03720036d3d90e49a892f5e1fdecb77,
-        type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7692983145434780870, guid: d03720036d3d90e49a892f5e1fdecb77,
-        type: 3}
-      propertyPath: m_MovementType
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7811375135211019929, guid: d03720036d3d90e49a892f5e1fdecb77,
         type: 3}

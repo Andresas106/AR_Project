@@ -16,6 +16,7 @@ public class ColliderSemilla : MonoBehaviour
     private Vector3 currentVelocity = Vector3.zero;
     private TrailRenderer trail;
     public GameObject semilla;
+    public GameObject particulas;
 
     void Start()
     {
@@ -60,6 +61,7 @@ public class ColliderSemilla : MonoBehaviour
         {
             Debug.Log("¡Semilla plantada en la tierra!");
             Destroy(semilla, 1f);
+            particulas.SetActive(true);
         }
     }
 

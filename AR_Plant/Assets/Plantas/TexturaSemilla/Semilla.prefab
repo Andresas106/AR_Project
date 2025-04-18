@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1036905322257325911}
   m_Layer: 0
   m_Name: Pivot
-  m_TagString: Untagged
+  m_TagString: Semilla
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &7692983145434780870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +209,9 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0.5}
   followSmoothTime: 0.1
   respawnDelay: 3
-  buttonDelete: {fileID: 0}
+  semilla: {fileID: 8648209908020266289}
+  particulas: {fileID: 7308288617438885400, guid: 84ded31e54e7b354ebb87bb95e988acd,
+    type: 3}
 --- !u!96 &1036905322257325911
 TrailRenderer:
   serializedVersion: 3
@@ -262,13 +264,13 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.049102843
-        inSlope: -0.06549653
-        outSlope: -0.06549653
+        value: 0.04484564
+        inSlope: -0.10329638
+        outSlope: -0.10329638
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.1
+        outWeight: 0.14978853
       - serializedVersion: 3
         time: 1
         value: 0
@@ -276,7 +278,7 @@ TrailRenderer:
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.13498619
+        inWeight: 0.17729527
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -444,7 +446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7811375135211019929
 Transform:
   m_ObjectHideFlags: 0
