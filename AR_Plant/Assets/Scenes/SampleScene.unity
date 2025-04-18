@@ -4797,7 +4797,7 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 8
-  Luz: {fileID: 0}
+  Luz: {fileID: 381685994}
   velocidadLlenado: 5
 --- !u!4 &985963074
 Transform:
@@ -4923,7 +4923,7 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 8
-  Luz: {fileID: 0}
+  Luz: {fileID: 72141818}
   velocidadLlenado: 5
 --- !u!4 &1027631140
 Transform:
