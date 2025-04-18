@@ -20,6 +20,11 @@ public class SelectorMode : MonoBehaviour
     public Slider Luz;
     public Slider Temp;
 
+    [Header("Interaccion")]
+    public GameObject AguaInteraccion;
+    public GameObject LuzInteraccion;
+    public GameObject TempInteraccion;
+
     public enum ModoAccion {Riego, Luz, Temperatura }
     public ModoAccion modoActivo;
 
@@ -58,17 +63,24 @@ public class SelectorMode : MonoBehaviour
         switch (modoActivo)
         {
             case ModoAccion.Riego:
-                Debug.Log("Regamos");
-                
-                
+                AguaInteraccion.SetActive(true);
+                LuzInteraccion.SetActive(false);
+                TempInteraccion.SetActive(false);
+
                 break;
             case ModoAccion.Luz:
-                // Ejecuta lógica de luz
-                Debug.Log("Luces");
+
+                AguaInteraccion.SetActive(false);
+                LuzInteraccion.SetActive(true);
+                TempInteraccion.SetActive(false);
+
                 break;
             case ModoAccion.Temperatura:
-                // Ejecuta lógica de temperatura
-                Debug.Log("Temperatura");
+
+                AguaInteraccion.SetActive(false);
+                LuzInteraccion.SetActive(false);
+                TempInteraccion.SetActive(true);
+
                 break;
         }
     }

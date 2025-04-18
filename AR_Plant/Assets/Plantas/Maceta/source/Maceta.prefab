@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4711260057161696313}
   - component: {fileID: -4154085711534323000}
   - component: {fileID: -7044975275797558772}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Maceta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6602652174785484137}
   - component: {fileID: 2388278163672198828}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coliider
   m_TagString: Tierra
   m_Icon: {fileID: 0}
@@ -509,6 +509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4470367272043389925, guid: 84ded31e54e7b354ebb87bb95e988acd,
         type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4470367272043389925, guid: 84ded31e54e7b354ebb87bb95e988acd,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -516,6 +521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ParticulasSemilla
+      objectReference: {fileID: 0}
+    - target: {fileID: 7308288617438885400, guid: 84ded31e54e7b354ebb87bb95e988acd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7308288617438885400, guid: 84ded31e54e7b354ebb87bb95e988acd,
         type: 3}
@@ -628,8 +638,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 429abd84b0a1cda4983c3da643861d1a,
         type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 429abd84b0a1cda4983c3da643861d1a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 429abd84b0a1cda4983c3da643861d1a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 429abd84b0a1cda4983c3da643861d1a,
         type: 3}

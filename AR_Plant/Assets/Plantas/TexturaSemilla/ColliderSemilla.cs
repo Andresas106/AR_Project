@@ -16,6 +16,7 @@ public class ColliderSemilla : MonoBehaviour
     private Vector3 currentVelocity = Vector3.zero;
     private TrailRenderer trail;
     public GameObject semilla;
+    public GameObject UIplanta;
 
     void Start()
     {
@@ -72,6 +73,7 @@ public class ColliderSemilla : MonoBehaviour
                 {
                     Destroy(semilla, 0.2f);
                     particulas.SetActive(true);
+                    UIplanta.SetActive(true);
                 }
             }
         }
