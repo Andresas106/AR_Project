@@ -54,14 +54,14 @@ public class ColliderSemilla : MonoBehaviour
         }*/
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (hasCollided) return;
 
-        if (collision.gameObject.CompareTag("Tierra"))
+
+        if (other.gameObject.CompareTag("Tierra"))
         {
             Debug.Log("¡Semilla plantada en la tierra!");
-            Destroy(collision.gameObject);
+            Destroy(other.gameObject);
         }
 
         hasCollided = true;
