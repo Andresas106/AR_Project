@@ -146,7 +146,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             set => m_SpawnAsChildren = value;
         }
 
-        private GameObject m_CurrentSpawnedObject;
+        public GameObject m_CurrentSpawnedObject;
         private GameObject m_StoredObject; // Guarda la planta cuando se recoge
         public GameObject numberText0;
         public GameObject numberText1;
@@ -228,7 +228,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 m_CurrentSpawnedObject.SetActive(true);
                 numberText0.SetActive(true);
                 numberText1.SetActive(false);
-                semilla.SetActive(true);
+                if(semilla != null)
+                {
+                    semilla.SetActive(true);
+                }
+                
 
                 objectSpawned?.Invoke(m_CurrentSpawnedObject);
                 return true;
@@ -263,7 +267,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             m_CurrentSpawnedObject = newObject;
             numberText0.SetActive(true);
             numberText1.SetActive(false);
-            semilla.SetActive(true);
+            if (semilla != null)
+            {
+                semilla.SetActive(true);
+            }
 
             objectSpawned?.Invoke(newObject);
             return true;
@@ -273,6 +280,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         {
             if (m_CurrentSpawnedObject != null)
             {
+
                 m_StoredObject = m_CurrentSpawnedObject;
                 m_StoredObject.SetActive(false);
                 m_CurrentSpawnedObject = null;
@@ -280,8 +288,22 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 numberText0.SetActive(false);
                 numberText1.SetActive(true);
 
-                semilla.SetActive(false);
+                if (semilla != null) {
+                    semilla.SetActive(false);
+                }
+                
             }
+        }
+
+        public void ForceRespawnObject(Vector3 spawnPoint, Vector3 spawnNormal)
+        {
+            if (m_CurrentSpawnedObject != null)
+            {
+                Destroy(m_CurrentSpawnedObject);
+                m_CurrentSpawnedObject = null;
+            }
+
+            TrySpawnObject(spawnPoint, spawnNormal);
         }
     }
 }

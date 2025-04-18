@@ -40,7 +40,13 @@ public class LevelSystem : MonoBehaviour
         Agua.value = 0;
         Luz.value = 0;
         Temperatura.value = 0;
-        ObjectSpawner.Index = +1;
+        ObjectSpawner.spawnOptionIndex = ObjectSpawner.spawnOptionIndex + 1;
+
+        // Cambiar el prefab visual al instante
+        Vector3 spawnPoint = ObjectSpawner.m_CurrentSpawnedObject.transform.position;
+        Vector3 spawnNormal = Vector3.up; // Usa la normal que estés usando para alinear el objeto
+
+        ObjectSpawner.ForceRespawnObject(spawnPoint, spawnNormal);
 
         // Aquí puedes añadir efectos visuales/sonidos
     }

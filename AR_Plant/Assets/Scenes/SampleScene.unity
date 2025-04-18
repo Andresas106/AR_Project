@@ -1747,6 +1747,7 @@ MonoBehaviour:
   m_ApplyRandomAngleAtSpawn: 1
   m_SpawnAngleRange: 45
   m_SpawnAsChildren: 0
+  m_CurrentSpawnedObject: {fileID: 0}
   numberText0: {fileID: 868476419}
   numberText1: {fileID: 794899931}
   semilla: {fileID: 15643548}
@@ -2476,6 +2477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 616350894}
+  - component: {fileID: 616350895}
   m_Layer: 0
   m_Name: PlantaNivel
   m_TagString: Untagged
@@ -2502,6 +2504,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &616350895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616350893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7367ac38038a6543b31d24310e64afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectSpawner: {fileID: 436358033}
+  Agua: {fileID: 381685994}
+  Luz: {fileID: 706233745}
+  Temperatura: {fileID: 72141818}
+  maxLevelValue: 100
+  currentLevel: 1
 --- !u!1 &619054200
 GameObject:
   m_ObjectHideFlags: 0
