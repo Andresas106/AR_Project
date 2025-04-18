@@ -58,7 +58,7 @@ public class ColliderSemilla : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tierra"))
         {
-            Destroy(semilla, 1f);
+            
             
 
             Transform maceta = other.transform.parent;
@@ -70,7 +70,7 @@ public class ColliderSemilla : MonoBehaviour
                 GameObject particulas = rootMaceta.transform.Find("ParticulasSemilla")?.gameObject; // buscar dentro del hijo "maceta"
                 if (particulas != null)
                 {
-
+                    Destroy(semilla, 0.2f);
                     particulas.SetActive(true);
                 }
             }
