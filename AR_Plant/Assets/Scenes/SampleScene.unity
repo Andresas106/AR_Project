@@ -2297,6 +2297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 619054202}
   - component: {fileID: 619054203}
+  - component: {fileID: 619054204}
   m_Layer: 0
   m_Name: UI PLANTA
   m_TagString: Untagged
@@ -2319,6 +2320,7 @@ RectTransform:
   - {fileID: 1630040616}
   - {fileID: 337096349}
   - {fileID: 405908024}
+  - {fileID: 1347874836}
   - {fileID: 1612217373}
   - {fileID: 441513456}
   - {fileID: 517837923}
@@ -2345,6 +2347,26 @@ MonoBehaviour:
   Luz: {fileID: 706233745}
   Temp: {fileID: 72141818}
   velocidadLlenado: 5
+--- !u!114 &619054204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619054200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4476b654fadf7e04caa0f985340dbc80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggleRiego: {fileID: 1571016708}
+  toggleLuz: {fileID: 2119733846}
+  toggleTemp: {fileID: 1361920436}
+  toggleGroup: {fileID: 1347874835}
+  Agua: {fileID: 381685994}
+  Luz: {fileID: 706233745}
+  Temp: {fileID: 72141818}
+  modoActivo: 0
 --- !u!1 &637151521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5963138107579739024, guid: 02644bbd28622410a84cf154fc436b8a,
@@ -6121,6 +6143,55 @@ MonoBehaviour:
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
+--- !u!1 &1347874834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1347874836}
+  - component: {fileID: 1347874835}
+  m_Layer: 0
+  m_Name: ToggleGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1347874835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347874834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fafe2cfe61f6974895a912c3755e8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowSwitchOff: 0
+--- !u!224 &1347874836
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347874834}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -74.23916}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 619054202}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -424.59335, y: 906.7283}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1350820847
 GameObject:
   m_ObjectHideFlags: 0
@@ -6304,11 +6375,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1050384837}
   toggleTransition: 1
   graphic: {fileID: 1925792312}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1347874835}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1001 &1362734343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7068,7 +7139,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1078049385}
   - {fileID: 904024629}
@@ -7122,7 +7193,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1078049386}
   toggleTransition: 1
   graphic: {fileID: 261270768}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1347874835}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -9558,11 +9629,11 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 206858554}
   toggleTransition: 1
   graphic: {fileID: 1198632215}
-  m_Group: {fileID: 0}
+  m_Group: {fileID: 1347874835}
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1001 &891726464977617767
 PrefabInstance:
   m_ObjectHideFlags: 0
