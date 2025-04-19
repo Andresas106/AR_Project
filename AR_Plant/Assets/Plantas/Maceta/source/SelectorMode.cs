@@ -28,6 +28,9 @@ public class SelectorMode : MonoBehaviour
     private GameObject maceta;
     private GameObject particulasLuz;
     public ObjectSpawner os;
+    public PlantaProteccion pp;
+
+    private bool generadoProteccion = false;
 
     void Start()
     {
@@ -96,12 +99,18 @@ public class SelectorMode : MonoBehaviour
                     particulasLuz.SetActive(false);
                 }
 
+                pp.DestruirProtecciones();
+                generadoProteccion = false;
+
                 break;
             case ModoAccion.Luz:
 
                 AguaInteraccion.SetActive(false);
                 LuzInteraccion.SetActive(true);
                 TempInteraccion.SetActive(false);
+
+                pp.DestruirProtecciones();
+                generadoProteccion = false;
 
                 break;
             case ModoAccion.Temperatura:
@@ -110,9 +119,17 @@ public class SelectorMode : MonoBehaviour
                 LuzInteraccion.SetActive(false);
                 TempInteraccion.SetActive(true);
 
+
+
                 if (particulasLuz != null)
                 {
                     particulasLuz.SetActive(false);
+                }
+
+                if (!generadoProteccion && maceta != null)
+                {
+                    pp.GenerarAlrededor(maceta);
+                    generadoProteccion = true;
                 }
 
                 break;
