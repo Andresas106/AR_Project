@@ -10,12 +10,15 @@ public class CircularRaycast : MonoBehaviour
 
     public Slider Luz;
 
+    public GameObject particulasLuz;
+
     public float velocidadLlenado = 5f;
 
     private Camera cam;
 
     void Start()
     {
+        particulasLuz.SetActive(false);
         cam = Camera.main;
     }
 
@@ -29,7 +32,12 @@ public class CircularRaycast : MonoBehaviour
         {
             Debug.Log("Objeto detectado: " + hitInfo.collider.name);
             // Aquí puedes añadir acciones (ej: activar un evento, destruir el objeto, etc.)
+            particulasLuz.SetActive(true);
             LlenarBarra(Luz);
+        }
+        else
+        {
+            particulasLuz.SetActive(false);
         }
     }
 
@@ -50,6 +58,7 @@ public class CircularRaycast : MonoBehaviour
         if (barra.value >= barra.maxValue)
         {
             Debug.Log("¡Barra llena!");
+            particulasLuz.SetActive(false);
         }
     }
 }
