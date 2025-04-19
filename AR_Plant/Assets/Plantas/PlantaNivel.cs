@@ -34,7 +34,6 @@ public class LevelSystem : MonoBehaviour
     void LevelUp()
     {
         currentLevel++;
-        Debug.Log("¡Subiste al nivel " + currentLevel + "!");
 
         // Reinicia los sliders (opcional)
         Agua.value = 0;
@@ -53,7 +52,7 @@ public class LevelSystem : MonoBehaviour
 
     void EndGame()
     {
-        if(currentLevel == 3)
+        if(currentLevel > 4)
         {
             MensajeEndGame.SetActive(true);
         }

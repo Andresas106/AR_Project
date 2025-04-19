@@ -43,17 +43,14 @@ public class AguaInteraccion : MonoBehaviour
     }
     private void OnParticleCollision(GameObject other)
     {
-        // Verifica si el objeto colisionado está en la capa "Planta"
-        if (((1 << other.layer) & plantaLayer) != 0)
+        // Verifica si el objeto colisionado tiene el tag "Tierra"
+        if (other.CompareTag("Tierra"))
         {
-
             // Actualiza el Slider
             if (Agua != null)
             {
-                Debug.Log("Aguallena");
                 Agua.value += valueIncrement;
             }
-
         }
     }
 

@@ -88,7 +88,7 @@ public class CircularRaycast : MonoBehaviour
         barra.value += velocidadLlenado * Time.deltaTime;
         if (barra.value >= barra.maxValue)
         {
-            Debug.Log("¡Barra llena!");
+        {
             if (particulasLuz != null)
             {
                 particulasLuz.SetActive(false);
