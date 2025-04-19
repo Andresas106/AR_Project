@@ -10986,6 +10986,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Luz: {fileID: 706233745}
+  particulasLuz: {fileID: 7308288617438885400, guid: 603c643baac84c6419b39171b18aa00e,
+    type: 3}
   velocidadLlenado: 20
 --- !u!4 &1250353495
 Transform:
