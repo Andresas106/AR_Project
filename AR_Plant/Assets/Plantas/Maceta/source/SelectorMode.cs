@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class SelectorMode : MonoBehaviour
 {
@@ -15,11 +16,6 @@ public class SelectorMode : MonoBehaviour
     [Header("Grupo de Toggles")]
     public ToggleGroup toggleGroup;
 
-    [Header("Barras UI")]
-    public Slider Agua;
-    public Slider Luz;
-    public Slider Temp;
-
     [Header("Interaccion")]
     public GameObject AguaInteraccion;
     public GameObject LuzInteraccion;
@@ -27,6 +23,11 @@ public class SelectorMode : MonoBehaviour
 
     public enum ModoAccion {Riego, Luz, Temperatura }
     public ModoAccion modoActivo;
+
+    [Header("Maceta")]
+    private GameObject maceta;
+    private GameObject particulasLuz;
+    public ObjectSpawner os;
 
     void Start()
     {
@@ -58,6 +59,29 @@ public class SelectorMode : MonoBehaviour
 
     void Update()
     {
+
+        if (os.spawnOptionIndex == 0)
+        {
+            maceta = GameObject.Find("Maceta(Clone)");
+        }
+        else if (os.spawnOptionIndex == 1)
+        {
+            maceta = GameObject.Find("MacetaNivel1(Clone)");
+        }
+        else if (os.spawnOptionIndex == 2)
+        {
+            maceta = GameObject.Find("MacetaNivel2(Clone)");
+        }
+        else if (os.spawnOptionIndex == 3)
+        {
+            maceta = GameObject.Find("MacetaNivel3(Clone)");
+        }
+
+
+        if (maceta != null)
+        {
+            particulasLuz = maceta.transform.Find("ParticulasLuz")?.gameObject;
+        }
         // Aquí puedes hacer cosas dependiendo del modo activo
         // Por ejemplo:
         switch (modoActivo)
@@ -66,6 +90,11 @@ public class SelectorMode : MonoBehaviour
                 AguaInteraccion.SetActive(true);
                 LuzInteraccion.SetActive(false);
                 TempInteraccion.SetActive(false);
+
+                if(particulasLuz != null)
+                {
+                    particulasLuz.SetActive(false);
+                }
 
                 break;
             case ModoAccion.Luz:
@@ -80,6 +109,11 @@ public class SelectorMode : MonoBehaviour
                 AguaInteraccion.SetActive(false);
                 LuzInteraccion.SetActive(false);
                 TempInteraccion.SetActive(true);
+
+                if (particulasLuz != null)
+                {
+                    particulasLuz.SetActive(false);
+                }
 
                 break;
         }

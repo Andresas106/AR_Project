@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class CircularRaycast : MonoBehaviour
 {
@@ -10,15 +11,18 @@ public class CircularRaycast : MonoBehaviour
 
     public Slider Luz;
 
-    public GameObject particulasLuz;
-
     public float velocidadLlenado = 5f;
 
     private Camera cam;
 
+    private GameObject maceta;
+    private GameObject particulasLuz;
+    public ObjectSpawner os;
+
     void Start()
     {
-        particulasLuz.SetActive(false);
+       
+        
         cam = Camera.main;
     }
 
@@ -28,16 +32,43 @@ public class CircularRaycast : MonoBehaviour
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         bool hasHit = Physics.Raycast(ray, out RaycastHit hitInfo, maxDistance, targetLayers);
 
+        if (os.spawnOptionIndex == 0)
+        {
+            maceta = GameObject.Find("Maceta(Clone)");
+        } else if(os.spawnOptionIndex == 1)
+        {
+            maceta = GameObject.Find("MacetaNivel1(Clone)");
+        } else if(os.spawnOptionIndex == 2)
+        {
+            maceta = GameObject.Find("MacetaNivel2(Clone)");
+        } else if(os.spawnOptionIndex == 3)
+        {
+            maceta = GameObject.Find("MacetaNivel3(Clone)");
+        }
+
+        
+        if (maceta != null)
+        {
+            particulasLuz = maceta.transform.Find("ParticulasLuz")?.gameObject;
+        }
+
         if (hasHit)
         {
-            Debug.Log("Objeto detectado: " + hitInfo.collider.name);
+            Debug.Log(particulasLuz);
+
             // Aquí puedes añadir acciones (ej: activar un evento, destruir el objeto, etc.)
-            particulasLuz.SetActive(true);
+            if (particulasLuz != null) {
+                particulasLuz.SetActive(true);
+            }
+            
             LlenarBarra(Luz);
         }
         else
         {
-            particulasLuz.SetActive(false);
+            if (particulasLuz != null)
+            {
+                particulasLuz.SetActive(false);
+            }
         }
     }
 
@@ -58,7 +89,10 @@ public class CircularRaycast : MonoBehaviour
         if (barra.value >= barra.maxValue)
         {
             Debug.Log("¡Barra llena!");
-            particulasLuz.SetActive(false);
+            if (particulasLuz != null)
+            {
+                particulasLuz.SetActive(false);
+            }
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlantaProteccion : MonoBehaviour
 {
+
+    private GameObject maceta;
     // Start is called before the first frame update
     void Start()
     {
