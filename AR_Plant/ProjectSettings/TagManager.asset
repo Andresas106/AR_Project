@@ -8,6 +8,7 @@ TagManager:
   - Suelo
   - Semilla
   - Particulas
+  - Bicho
   layers:
   - Default
   - TransparentFX
