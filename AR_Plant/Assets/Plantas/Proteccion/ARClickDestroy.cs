@@ -1,10 +1,15 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 
 public class ARClickDestroy : MonoBehaviour
 {
     [SerializeField] private UnityEngine.XR.Interaction.Toolkit.Interactors.XRRayInteractor rayInteractor;
+
+    public Slider Proteccion;
+    public float valueIncrement;
+    private GameObject particulasBicho;
 
     void Update()
     {
@@ -15,7 +20,16 @@ public class ARClickDestroy : MonoBehaviour
             {
                 // Destruye el objeto
                 Destroy(hit.collider.gameObject);
+                LlenarBarra(Proteccion);
             }
+        }
+    }
+
+    void LlenarBarra(Slider barra)
+    {
+        if (barra != null)
+        {
+            barra.value += valueIncrement;
         }
     }
 }

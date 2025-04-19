@@ -1486,7 +1486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 405908024}
   m_Layer: 0
-  m_Name: BarraTemperatura
+  m_Name: BarraProteccion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1784,7 +1784,7 @@ GameObject:
   m_Component:
   - component: {fileID: 517837923}
   m_Layer: 0
-  m_Name: BotonTemperatura
+  m_Name: BotonProteccion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9634,6 +9634,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayInteractor: {fileID: 331264286}
+  Proteccion: {fileID: 72141818}
+  valueIncrement: 20
 --- !u!1 &1038709736
 GameObject:
   m_ObjectHideFlags: 0
