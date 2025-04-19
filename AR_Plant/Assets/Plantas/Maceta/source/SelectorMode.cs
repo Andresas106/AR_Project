@@ -21,7 +21,7 @@ public class SelectorMode : MonoBehaviour
     public GameObject LuzInteraccion;
     public GameObject TempInteraccion;
 
-    public enum ModoAccion {Riego, Luz, Temperatura }
+    public enum ModoAccion {Riego, Luz, Temperatura, Nada }
     public ModoAccion modoActivo;
 
     [Header("Maceta")]
@@ -40,11 +40,11 @@ public class SelectorMode : MonoBehaviour
         toggleTemp.group = toggleGroup;
 
         // Forzar modo riego por defecto
-        toggleRiego.isOn = true;
+        toggleRiego.isOn = false;
         toggleLuz.isOn = false;
         toggleTemp.isOn = false;
 
-        modoActivo = ModoAccion.Riego;
+        modoActivo = ModoAccion.Nada;
 
         // Listeners para cambios de selección
         toggleRiego.onValueChanged.AddListener((isOn) => {
