@@ -54,7 +54,6 @@ public class CircularRaycast : MonoBehaviour
 
         if (hasHit)
         {
-            Debug.Log(particulasLuz);
 
             // Aquí puedes añadir acciones (ej: activar un evento, destruir el objeto, etc.)
             if (particulasLuz != null) {
@@ -87,7 +86,6 @@ public class CircularRaycast : MonoBehaviour
     {
         barra.value += velocidadLlenado * Time.deltaTime;
         if (barra.value >= barra.maxValue)
-        {
         {
             if (particulasLuz != null)
             {
