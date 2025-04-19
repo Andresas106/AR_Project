@@ -2405,13 +2405,11 @@ MonoBehaviour:
   toggleLuz: {fileID: 2119733846}
   toggleTemp: {fileID: 1361920436}
   toggleGroup: {fileID: 1347874835}
-  Agua: {fileID: 381685994}
-  Luz: {fileID: 706233745}
-  Temp: {fileID: 72141818}
   AguaInteraccion: {fileID: 985963072}
   LuzInteraccion: {fileID: 1250353492}
   TempInteraccion: {fileID: 1027631138}
   modoActivo: 0
+  os: {fileID: 436358033}
 --- !u!1 &637151521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5963138107579739024, guid: 02644bbd28622410a84cf154fc436b8a,
@@ -10986,9 +10984,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Luz: {fileID: 706233745}
-  particulasLuz: {fileID: 7308288617438885400, guid: 603c643baac84c6419b39171b18aa00e,
-    type: 3}
   velocidadLlenado: 20
+  os: {fileID: 436358033}
 --- !u!4 &1250353495
 Transform:
   m_ObjectHideFlags: 0
