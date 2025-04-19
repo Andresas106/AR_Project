@@ -5,6 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 public class LevelSystem : MonoBehaviour
 {
     public ObjectSpawner ObjectSpawner;
+    public GameObject MensajeEndGame;
 
     [Header("Sliders")]
     public Slider Agua;
@@ -24,9 +25,7 @@ public class LevelSystem : MonoBehaviour
     void CheckLevelUp()
     {
         // Verifica si los 3 sliders están al máximo
-        if (Agua.value >= maxLevelValue &&
-            Luz.value >= maxLevelValue &&
-            Temperatura.value >= maxLevelValue)
+        if (Agua.value >= maxLevelValue && Luz.value >= maxLevelValue && Temperatura.value >= maxLevelValue)
         {
             LevelUp();
         }
@@ -54,9 +53,9 @@ public class LevelSystem : MonoBehaviour
 
     void EndGame()
     {
-        if(ObjectSpawner.spawnOptionIndex == 3)
+        if(currentLevel == 3)
         {
-
+            MensajeEndGame.SetActive(true);
         }
     }
 }

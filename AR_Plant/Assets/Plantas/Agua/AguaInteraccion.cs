@@ -50,6 +50,7 @@ public class AguaInteraccion : MonoBehaviour
             // Actualiza el Slider
             if (Agua != null)
             {
+                Debug.Log("Aguallena");
                 Agua.value += valueIncrement;
             }
 
