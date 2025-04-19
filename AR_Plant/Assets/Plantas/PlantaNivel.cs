@@ -18,6 +18,7 @@ public class LevelSystem : MonoBehaviour
     void Update()
     {
         CheckLevelUp();
+        EndGame();
     }
 
     void CheckLevelUp()
@@ -49,5 +50,13 @@ public class LevelSystem : MonoBehaviour
         ObjectSpawner.ForceRespawnObject(spawnPoint, spawnNormal);
 
         // Aquí puedes añadir efectos visuales/sonidos
+    }
+
+    void EndGame()
+    {
+        if(ObjectSpawner.spawnOptionIndex == 3)
+        {
+
+        }
     }
 }
