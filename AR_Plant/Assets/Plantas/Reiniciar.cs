@@ -1,30 +1,27 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.Management;
+using System.Collections;
 
 public class RestartScene : MonoBehaviour
 {
-    private ARSession _arSession;
 
-    void Start()
+    public void ReiniciarScene()
     {
-        // Cachear referencia al ARSession al inicio
-        _arSession = FindObjectOfType<ARSession>();
+        StartCoroutine(RestartCurrentScene());
     }
 
-    public void RestartCurrentScene()
+    private IEnumerator RestartCurrentScene()
     {
         // 1. Detener el ARSession antes de reiniciar
-        if (_arSession != null)
-        {
-            _arSession.Reset();
-            Debug.Log("ARSession reseteado");
-        }
+        // Detener y desinicializar el sistema XR
+        XRGeneralSettings.Instance.Manager.StopSubsystems();
+        XRGeneralSettings.Instance.Manager.DeinitializeLoader();
 
-        // 2. Reiniciar la escena
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+        // Esperar un frame para asegurar que el sistema XR se ha detenido completamente
+        yield return null;
 
-        // 3. Opcional: Forzar recolección de basura
-        System.GC.Collect();
+        // Recargar la escena actual
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
