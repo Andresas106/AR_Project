@@ -85,6 +85,13 @@ public class SelectorMode : MonoBehaviour
         {
             particulasLuz = maceta.transform.Find("ParticulasLuz")?.gameObject;
         }
+        else
+        {
+            toggleRiego.isOn = false;
+            toggleLuz.isOn = false;
+            toggleTemp.isOn = false;
+            modoActivo = ModoAccion.Nada;
+        }
         // Aquí puedes hacer cosas dependiendo del modo activo
         // Por ejemplo:
         switch (modoActivo)
@@ -133,6 +140,20 @@ public class SelectorMode : MonoBehaviour
                 }
 
                 break;
+            default:
+
+                DesactivarTodo();
+                break;
         }
+    }
+
+    public void DesactivarTodo()
+    {
+        AguaInteraccion.SetActive(false);
+        LuzInteraccion.SetActive(false);
+        TempInteraccion.SetActive(false);
+
+        pp.DestruirProtecciones();
+        generadoProteccion = false;
     }
 }

@@ -15,6 +15,7 @@ public class LevelSystem : MonoBehaviour
     [Header("Configuración")]
     public float maxLevelValue = 100f;
     public int currentLevel = 1;
+    public SelectorMode sm;
 
     void Update()
     {
@@ -44,6 +45,8 @@ public class LevelSystem : MonoBehaviour
         // Cambiar el prefab visual al instante
         Vector3 spawnPoint = ObjectSpawner.m_CurrentSpawnedObject.transform.position;
         Vector3 spawnNormal = Vector3.up; // Usa la normal que estés usando para alinear el objeto
+        sm.modoActivo = SelectorMode.ModoAccion.Nada;
+        sm.DesactivarTodo();
 
         ObjectSpawner.ForceRespawnObject(spawnPoint, spawnNormal);
 
@@ -52,7 +55,7 @@ public class LevelSystem : MonoBehaviour
 
     void EndGame()
     {
-        if(currentLevel > 4)
+        if(currentLevel > 3)
         {
             MensajeEndGame.SetActive(true);
         }

@@ -2723,6 +2723,7 @@ MonoBehaviour:
   Temperatura: {fileID: 72141818}
   maxLevelValue: 100
   currentLevel: 1
+  sm: {fileID: 619054204}
 --- !u!1 &619054200
 GameObject:
   m_ObjectHideFlags: 0
