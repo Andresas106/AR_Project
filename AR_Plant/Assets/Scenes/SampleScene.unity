@@ -13569,7 +13569,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1675749009}
         m_TargetAssemblyTypeName: RestartScene, Assembly-CSharp
-        m_MethodName: RestartCurrentScene
+        m_MethodName: ReiniciarScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
