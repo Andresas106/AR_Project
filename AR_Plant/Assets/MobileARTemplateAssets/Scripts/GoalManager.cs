@@ -297,8 +297,8 @@ public class GoalManager : MonoBehaviour
 
         m_OnboardingGoals.Enqueue(tapSurfaceGoal);
         m_OnboardingGoals.Enqueue(translateHintsGoal);
-        m_OnboardingGoals.Enqueue(scaleHintsGoal);
-        m_OnboardingGoals.Enqueue(rotateHintsGoal);
+        //m_OnboardingGoals.Enqueue(scaleHintsGoal);
+        //m_OnboardingGoals.Enqueue(rotateHintsGoal);
 
         m_CurrentGoal = m_OnboardingGoals.Dequeue();
         m_AllGoalsFinished = false;
