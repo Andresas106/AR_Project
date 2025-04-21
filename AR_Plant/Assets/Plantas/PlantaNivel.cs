@@ -55,7 +55,7 @@ public class LevelSystem : MonoBehaviour
 
     void EndGame()
     {
-        if(currentLevel > 3)
+        if(currentLevel == 5)
         {
             MensajeEndGame.SetActive(true);
         }
